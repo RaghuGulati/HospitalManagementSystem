@@ -1,0 +1,23 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+	label{
+		font-size: 25px;
+		margin-left: 
+
+	}
+</style>
+<br>
+	<ul>
+	{% for n in notification %}
+		<label>
+			<li>
+				<b>Appointment Id:{{ n.app_id_id }}</b>
+		 		{{ n.notification }}
+		 	</li>
+		 </label>
+		 <br>
+	{% endfor %}
+</ul>
+{% endblock %}

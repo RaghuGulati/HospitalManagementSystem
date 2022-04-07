@@ -1,0 +1,46 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+	td,th{
+		font-size: 25px;
+		padding: 13px;
+		padding-right: 52px;
+		border-bottom: 2px solid black;
+	}
+
+	th{
+		background-color: blue;
+		color: white;
+	}
+	
+</style>
+<center>
+	<br><br>
+	<table>
+			<tr>
+				<th>Id</th>
+				<th>Date and Time</th>
+				<th>Appointment ID</th>
+				<th>Symptoms</th>
+				<th>Doctor Details</th>
+				<th>Medicines & Others</th>
+				<th>Consultant Fees</th>
+				<th>Other Fees</th>
+			</tr>
+
+		{% for p in pres %}
+			<tr>
+				<td> {{ p.id }} </td>
+				<td> {{ p.datetime }} </td>
+				<td> {{ p.app_id_id }} </td>
+				<td> {{ p.symptoms }} </td>
+				<td> {{ p.details }} </td>
+				<td> {{ p.medicines }} </td>
+				<td> {{ p.consultant_fees }} </td>
+				<td> {{ p.other_fees }} </td>
+			</tr>
+		{% endfor %}
+	</table>
+</center>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends '../base.html' %}
+
+{% block permalink %}
+    <li class="nav-item active">
+        <a href = "/doctor/{{ username }}/" class="nav-link">Home</a>
+    </li>
+
+{% endblock %}         
+
+{% block navbar %}
+
+    <li class="nav-item active">
+        <a href = "/doctor/{{ username }}/appointments/" class="nav-link" id = "a">
+            Appointments
+        </a>
+    </li>    
+
+    <li class="nav-item active">
+        <a href = "/doctor/{{ username }}/prescriptions/new/" class="nav-link" id = "a">
+            Create New Prescription
+        </a>
+    </li>
+
+    <li class="nav-item active">
+        <a href = "/doctor/{{ username }}/prescriptions/history/" class="nav-link" id = "a">
+            Prescriptions
+        </a>
+    </li>
+
+{% endblock %}

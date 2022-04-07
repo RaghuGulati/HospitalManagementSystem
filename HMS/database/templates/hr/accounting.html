@@ -1,0 +1,68 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+	td,th{
+		font-size: 25px;
+		padding: 13px;
+		padding-right: 52px;
+		border-bottom: 2px solid black;
+	}
+
+	th{
+		background-color: blue;
+		color: white;
+	}
+
+	#head{
+		font-size: 25px;
+	}
+	
+</style>
+<center>
+	<br><br>
+	<div class="row">
+	<div class="col-md-6">
+	<div id = "head">Invoice Details</div>
+	<table>
+			<tr>
+				<th>Invoice Number</th>
+				<th>Patient ID</th>
+				<th>Outstanding</th>
+				<th>Paid</th>
+			</tr>
+
+			{% for i in inv %}
+				<tr>
+					<td>{{ i.invoice_number }}</td>
+					<td>{{ i.patient_id_id }}</td>
+					<td>{{ i.outstanding }}</td>
+					<td>{{ i.paid }}</td>
+				</tr>
+			{% endfor %}		
+	</table>
+	</div>
+
+	<div class="col-md-6">
+	<div id = "head">Fees Details</div>
+	<table>
+			<tr>
+				<th>Patient ID</th>
+				<th>Appoinement Id</th>
+				<th>Consultant Fees</th>
+				<th>Other Fees</th>
+			</tr>
+
+			{% for i in pres %}
+				<tr>
+					<td>{{ i.patient_id_id }}</td>
+					<td>{{ i.app_id_id }}</td>
+					<td>{{ i.consultant_fees }}</td>
+					<td>{{ i.other_fees }}</td>
+				</tr>
+			{% endfor %}		
+	</table>
+	</div>
+	</div>
+</center>
+{% endblock %}

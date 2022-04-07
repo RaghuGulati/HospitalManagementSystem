@@ -1,0 +1,45 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+	label{
+		width: 350px;
+		text-align: left;
+	}
+	input{
+		width: 350px;
+	}
+
+    select{
+        width: 350px;  
+        border: 2px solid black;
+        text-decoration: none; 
+    }
+</style>
+<form method='POST' action='.' enctype="multipart/form-data">{% csrf_token %}
+        <h2>
+        <br>
+        <b>
+        	<center>
+           {{ form.as_p }}
+            <label>Date Time</label>
+            <input type="datetime-local" name="datetime">   
+            <br><br><br>
+           
+       </center>
+        </b>
+        <center>
+        <button style="background-color:blue; color:white" type = "submit">
+                Submit
+        </button>
+        <button style="background-color:blue; color:white" type = "reset">
+                Reset
+        </button>
+        </center>
+
+        </h2>
+    </form>
+
+
+
+{% endblock %}

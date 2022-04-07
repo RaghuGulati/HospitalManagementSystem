@@ -1,0 +1,198 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+	<style type="text/css">
+		.totaldr, .totalp, .ondutydr{
+			font-size: 25px;
+			border: 1px solid black;
+			width: 437px;
+			height: 150px;
+			background-color: #1F45FC;
+			color: white;
+			margin-top: 20px;
+		}
+
+		.head{
+			border-bottom: 2px solid white;
+		}
+
+		table{
+			font-size:25px;
+		}
+
+		td,th{
+			padding: 13px;
+			padding-right: 130px;
+			border-bottom: 2px solid black;
+			margin-right: 50px;
+		}
+
+		a{
+			text-decoration: none;
+			color: white;
+			font-weight: bold;
+		}
+
+		a:hover{
+			text-decoration: none;
+			color: white;
+		}
+
+		.thead{
+			font-size: 30px;
+			background-color: blue;
+			color: white;
+			margin-left: 50px;
+		}
+		.row{
+			overflow-x: scroll;
+			overflow-y: scroll;
+		}
+
+		.patients, .doctors{
+			height:500px;
+			width: 100%;	
+		}
+
+		#p{
+			margin-left: 50px;
+		}
+
+		#d{
+			margin-left: 50px;	
+		}
+
+		#d td,th{
+			padding-right: 42px;
+		}
+
+	</style>
+
+<div class="row">
+	<div class="col-sm-4 totaldr">
+		<div class="head">
+			<center>
+				<b>Total Doctors</b>
+			</center>
+		</div>
+		<div class="content">
+			<center>
+				<br>
+				<b> {{ totaldr }} </b>
+			</center>
+		</div>
+	</div>
+
+	<div class="col-sm-4 totalp">
+		<div class="head">
+			<center>
+				<b>Total Patients </b>
+			</center>
+		</div>
+		<div class="content">
+			<center>
+				<br>
+				<b> {{ totalp }} </b>
+			</center>
+		</div>
+	</div>
+
+	<div class="col-sm-4 ondutydr">
+		<div class="head">
+			<center>
+				<b>On Duty Doctors</b>
+			</center>
+		</div>
+		<div class="content">
+			<center>
+				<br>
+				<b> {{ ondutydr }} </b>
+			</center>
+		</div>
+	</div>
+
+<div class="row patients">
+	<center>
+		<br><br>
+		<div class="thead">
+			<center>
+				<a>Patients' List</a>			
+			</center>
+		</div>
+		<table id = "p">
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Username</th>
+				<th>Mobile</th>
+				<th>Email</th>
+				<th>Gender</th>
+				<th>Age</th>
+			</tr>
+
+		{% for p in patient %}
+			<tr>
+				<td>{{ p.id }}</td>
+				<td>{{ p.name }}</td>
+				<td>{{ p.username }}</td>
+				<td>{{ p.phone }}</td>
+				<td>{{ p.email }}</td>
+				<td>{{ p.gender }}</td>
+				<td>{{ p.age }}</td>
+			</tr>				
+		{% endfor %}
+		</table>
+	</center>
+</div>
+<div class="row doctors">
+	<div class="col-md-12">
+		<br><br>
+		<div class="thead">
+			<center>
+				<a>Doctors' List</a>			
+			</center>
+		</div>
+		<table id = "d">
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Username</th>
+				<th>Mobile</th>
+				<th>Email</th>
+				<th>Gender</th>
+				<th>Status</th>
+				<th>Department</th>
+				<th>Salary</th>
+				<th>Update</th>
+				<th>Delete</th>
+			</tr>
+		{% for dr in doctors %}
+			<tr>
+				<td>{{ dr.id }}</td>
+				<td>{{ dr.name }}</td>
+				<td>{{ dr.username }}</td>
+				<td>{{ dr.phone }}</td>
+				<td>{{ dr.email }}</td>
+				<td>{{ dr.gender }}</td>
+				<td>{{ dr.status }}</td>				
+				<td>{{ dr.depatment }}</td>				
+				<td>{{ dr.salary }}</td>				
+				<td style="background-color: blue">
+					<a href="/hr/{{ username }}/dashboard/doctor/{{ dr.id }}/update/">
+						Update
+					</a>
+				</td>
+				<td style="background-color: red">
+					<a href="/hr/{{ username }}/dashboard/doctor/{{ dr.id }}/delete/">
+						Delete
+					</a>
+				</td>
+			</tr>				
+		{% endfor %}
+		</table>
+		<br><br><br>
+	</div>		
+</div>
+</div>
+<br><br>
+{% endblock %}

@@ -1,0 +1,210 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+	<style type="text/css">
+		.total, .queued, .pending, .done{
+			font-size: 25px;
+			border: 1px solid black;
+			width: 437px;
+			height: 150px;
+			background-color: #1F45FC;
+			color: white;
+			margin-top: 20px;
+		}
+
+		.head{
+			border-bottom: 2px solid white;
+		}
+
+		table{
+			font-size:25px;
+		}
+
+		td,th{
+			padding: 13px;
+			padding-right: 52px;
+			border-bottom: 2px solid black;
+		}
+
+		a{
+			text-decoration: none;
+			color: white;
+			font-weight: bold;
+		}
+
+		a:hover{
+			text-decoration: none;
+			color: white;
+		}
+
+		.appointdr{
+			font-size: 30px;
+			background-color: blue;
+			color: white;
+		}
+
+		.pa, .qa{
+			height: 400px;
+			overflow-x: scroll;
+			overflow-y: scroll;
+		}
+
+
+	</style>
+
+<div class="row">
+	<div class="col-sm-3 total">
+		<div class="head">
+			<center>
+				
+				<b>Total Appointments</b>
+			</center>
+		</div>
+		<div class="content">
+			<center>
+				<br>
+				<b> {{ totala }} </b>
+			</center>
+		</div>
+	</div>
+
+	<div class="col-sm-3 queued">
+		<div class="head">
+			<center>
+				<b>Queued Appointments </b>
+			</center>
+		</div>
+		<div class="content">
+			<center>
+				for Doctor recommendation<br>
+				<b>{{ queuesa }}</b>
+			</center>
+		</div>
+	</div>
+
+	<div class="col-sm-3 pending">
+		<div class="head">
+			<center>
+				<b>Pending Appointments</b>
+			</center>
+		</div>
+		<div class="content">
+			<center>
+				Doctor Recommended<br>
+				<b>{{ pendinga }}</b>
+			</center>
+		</div>
+	</div>
+
+	<div class="col-sm-3 done">
+		<div class="head">
+			<center>
+				<b>Completed Appointments</b>
+			</center>
+		</div>
+		<div class="content">
+			<center>
+				<br>
+				<b> {{ donea }}</b>
+			</center>
+		</div>
+	</div>	
+</div>
+
+<div class="row">
+	<div class="col-md-6 qa">
+		<br><br>
+		<div class="appointdr">
+			<center>
+				<a href="/receptionist/{{ username }}/appointments/recommend/">Recommend Appointment to Doctor</a>			
+			</center>
+		</div>
+		<table>
+			<tr>
+				<th>Date and Time</th>
+				<th>Patient</th>
+				<th>Status</th>
+				<th>Doctor Department</th>
+			</tr>
+
+		{% for application in apq %}
+			<tr>
+				<td>{{ application.datetime }}</td>
+				<td>{{ application.patient_id_id }}</td>
+				<td>{{ application.status }}</td>
+				<td>{{ application.doctor_department }}</td>
+			</tr>				
+		{% endfor %}
+		</table>
+	</div>	
+	<div class="col-md-6 pa">
+		<br><br>
+		<div class="appointdr">
+			<center>
+				<a>Pending Appointments</a>			
+			</center>
+		</div>
+		<table>
+			<tr>
+				<th>Date Time</th>
+				<th>Patient</th>
+				<th>Consulting Doctor</th>
+				<th>Send Reminder</th>
+			</tr>
+
+		{% for application in app %}
+			<tr>
+				<td>{{ application.datetime }}</td>
+				<td>{{ application.patient_id_id }}</td>
+				<td>{{ application.consulting_doctor_id }}</td>
+				<td>
+					<a href="/receptionist/{{ username }}/appointments/{{ application.id }}/send/reminder/" style="color: red">
+					   <i class="fa fa-bell" aria-hidden="true"></i>
+					</a>
+				</td>
+			</tr>				
+		{% endfor %}
+		</table>
+	</div>		
+</div>
+	
+<div class="row">
+	<div class="col-md-12 da">
+		<br><br>
+		<div class="appointdr">
+			<center>
+				<a href="/receptionist/{{ username }}/appointments/recommend/">Recommend Appointment to Doctor</a>			
+			</center>
+		</div>
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>Date and Time</th>
+				<th>Patient</th>
+				<th>Appointment ID</th>
+				<th>Doctor Details</th>
+				<th>Medicines & Others</th>
+				<th>Consultant Fees</th>
+				<th>Other Fees</th>
+				<th>Charge Fees</th>
+			</tr>
+
+		{% for p in apd %}
+			<tr>
+				<td> {{ p.id }} </td>
+				<td> {{ p.datetime }} </td>
+				<td> {{ p.patient_id_id }} </td>
+				<td> {{ p.app_id_id }} </td>
+				<td> {{ p.details }} </td>
+				<td> {{ p.medicines }} </td>
+				<td> {{ p.consultant_fees }} </td>
+				<td> {{ p.other_fees }} </td>
+				<td style="background-color: orange"> 
+					<a href="/receptionist/{{ username }}/appointment/{{ p.id }}/charge/fees/">charge</a> </td>
+			</tr>				
+		{% endfor %}
+		</table>
+	</div>	
+</div>	
+<br><br>
+{% endblock %}

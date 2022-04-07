@@ -1,0 +1,66 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+		body{
+			font-size: 30px;
+		}
+
+		label{
+            width: 350px;
+            padding:5px;
+            margin-left: 40px;
+            margin-bottom: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        input, textarea, select{
+            width: 350px;
+            padding:5px;
+            margin-left: 40px;
+            margin-bottom: 15px;
+            background-color: white;
+            border: 2px solid black;
+        }
+
+</style>
+<br><br>
+	<center>
+	<form method='POST' action='.' enctype="multipart/form-data">{% csrf_token %}
+		
+		<label>Select Appointment Id</label>
+		<select name = "appid">
+			{% for a in app %}
+				<option>{{ a.id }}</option>
+			{% endfor %}
+		</select>
+		<br>
+			
+		<label>Symptoms</label>
+		<textarea name="symptoms"></textarea>
+		<br>
+
+		<label>Doctor Details</label>
+		<textarea name="dd"></textarea>
+		<br>
+
+		<label>Medicines & Other facilities (If nothing to be prescribed, leave blank)</label>
+		<textarea name="medicines"></textarea>
+		<br>
+
+		<label>Consultant's Fees</label>
+		<input type="number" name="cf">
+		<br>
+
+		<button style="background-color:blue; color:white" type = "submit">
+                Submit
+        </button>
+        <button style="background-color:blue; color:white" type = "reset">
+                Reset
+        </button>
+        <br><br><br>
+	</form>
+	</center>
+
+{% endblock %}

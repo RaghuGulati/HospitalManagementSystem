@@ -1,0 +1,38 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+	td,th{
+		font-size: 25px;
+		padding: 13px;
+		padding-right: 52px;
+		border-bottom: 2px solid black;
+	}
+
+	th{
+		background-color: blue;
+		color: white;
+	}
+	
+</style>
+<center>
+	<br><br>
+	<table>
+			<tr>
+				<th>Id</th>
+				<th>Payment ID</th>
+				<th>Date</th>
+				<th>Amount</th>
+			</tr>
+
+		{% for p in ph %}
+			<tr>
+				<td> {{ p.id }} </td>
+				<td> {{ p.order_id }} </td>
+				<td> {{ p.date }} </td>
+				<td> {{ p.amount }} </td>
+			</tr>
+		{% endfor %}
+	</table>
+</center>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+	.paymentbox{
+		border: 20px double blue;
+		width: 50%;
+		height: 500px;
+	}
+
+	input, button{
+		font-size: 25px;
+		text-decoration: none;
+		border: 2px solid black;	
+	}
+
+</style>
+<br><br><br>
+<center>
+	<div class="paymentbox">
+		<h1>Payment</h1>
+		<br><br>
+		<h2>Pay: {{ inv.outstanding }}</h2>
+		<br>
+		<form method='POST' action='.' enctype="multipart/form-data">{% csrf_token %}
+		<input type="number" name="money" min = "0" max = "{{ inv.outstanding }}"><br><br><br><br>
+        <button style="background-color:blue; color:white" type = "submit">
+                Submit
+        </button>
+        <button style="background-color:blue; color:white" type = "reset">
+                Reset
+        </button>
+    	</form>
+	</div>
+</center>
+
+{% endblock %}

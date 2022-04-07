@@ -1,0 +1,49 @@
+{% extends '../base.html' %}
+
+{% block permalink %}
+    <li class="nav-item active">
+        <a href = "/patient/{{ username }}/" class="nav-link">Home</a>
+    </li>
+ 
+{% endblock %}         
+
+{% block navbar %}
+
+    <li class="nav-item active">
+        <a href = "/patient/{{ username }}/appointments/new/" class="nav-link" id = "a">
+            Request for Appointments
+        </a>
+    </li>    
+
+    <li class="nav-item active">
+        <a href = "/patient/{{ username }}/appointments/" class="nav-link" id = "a">
+            Your Appointments
+        </a>
+    </li>
+
+    <li class="nav-item active">
+        <a href = '/patient/{{ username }}/invoices/' class="nav-link" id = "a">
+            Invoice and Payments
+        </a>
+    </li> 
+
+    <li class="nav-item active">
+        <a href = "/patient/{{ username }}/medical/history/" class="nav-link" id = "a">
+            Medical History
+        </a>
+    </li> 
+
+    
+    <li class="nav-item active">
+        <a href = "/patient/{{ username }}/payment/history/" class="nav-link" id = "a">
+            Payment History
+        </a>
+    </li> 
+
+    <li class="nav-item active">
+        <a href = "/patient/{{ username }}/upload/medical/reports/" class="nav-link" id = "a">
+            Upload Medical Reports
+        </a>
+    </li> 
+
+{% endblock %}

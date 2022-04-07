@@ -1,0 +1,83 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+	.main_page{
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+
+	.underline{
+		background-color: purple;
+		height: 2.5px;
+		width: 50px;
+	}
+
+	#i2{
+		position: absolute;
+		top: 100px;
+		left: 100px;
+	}
+
+	#i1{
+		position: absolute;
+		top: 220px;
+		left: 330px;
+	}	
+
+	#note{
+		font-size: 20px;
+		position: absolute;
+		text-align-last: center;
+	}
+
+	#content{
+		font-size: 25px;
+	}
+
+</style>
+
+<div class="row" class="main_page">
+	<div class="col-lg-6">
+		<img id = "i2" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.8_p_nf9UtnbYUtsWJbWzKgHaEK%26pid%3DApi&f=1">
+
+		<img id = "i1" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.Pr9PM5v_0Yo3vXEHr43p7AHaE6%26pid%3DApi&f=1">
+		
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br><br><br><br>
+		<br><br>
+		<center>
+			<h3>Renowned Doctors to cure the patients</h3>
+		</center>
+	</div>
+	<div class="col-lg-6">
+		<br><br><br><br><br>
+		<h4>Welcome to HMS</h4>
+		<div class="underline">
+		</div>
+		<br><br>
+		<h1>
+			<b>Best Care For Your<br>Good Health</b>
+		</h1>
+		<div id = "content">
+			Welcome to the Hospital Management System where you can get the treatment from various renowned doctors.<br>	
+			<ul>
+				<li>
+					Appointment frequently and motionless
+				</li>
+				<li>
+					Well Mentained track of Medical History of a patient
+				</li>
+				<li>
+					Any patient or doctor can freely register here.	
+				</li>
+			</ul>
+		</div>
+		
+
+	</div>
+</div>
+
+{% endblock %}

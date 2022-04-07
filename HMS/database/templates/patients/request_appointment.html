@@ -1,0 +1,63 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+		body{
+			font-size: 30px;
+		}
+
+		label{
+            width: 350px;
+            padding:5px;
+            margin-left: 40px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        input, textarea{
+            width: 350px;
+            padding:5px;
+            margin-left: 40px;
+            margin-bottom: 15px;
+            background-color: white;
+            border: 2px solid black;
+        }
+
+</style>
+<br><br>
+	<center>
+	<form method='POST' action='.' enctype="multipart/form-data">{% csrf_token %}
+		<label>Name:</label>
+		<label>{{ patient.name }}</label><br>
+		<label>Age:</label>
+		<input type="text" name="age" value = "{{ patient.age }}"><br>
+		<label>Weight:</label>
+		<input type="text" name="weight" value = "{{ pmd.weight }}" placeholder="Enter your weight"><br>
+		<label>Blood Group:</label>
+		<input type="text" name="bg" value = "{{ pmd.blood_group }}" placeholder="Enter blood group"><br>
+		<label>Enter if any previous allergy/allergies:</label>
+		<textarea name="pa" rows = "5" cols="27" style="font-size: 20px;">
+			{{ pmd.allergies }}
+		</textarea><br>
+		<label>Doctor Type:</label>
+		<input type="text" name="dt" placeholder="Doctor type"><br>
+
+
+<!--		<label>Previous Medical Report if any:</label>
+		<label>Upload recent report)</label><br>
+
+
+		<label>File Number:</label>
+		<input type="number" name="cp" value = "{{ pmr.case_paper }}" placeholder="if any hospitalization here"><br><br>
+	--> 
+
+		<button style="background-color:blue; color:white" type = "submit">
+                Submit
+        </button>
+        <button style="background-color:blue; color:white" type = "reset">
+                Reset
+        </button>
+        <br><br><br>
+	</form>
+	</center>
+{% endblock %}

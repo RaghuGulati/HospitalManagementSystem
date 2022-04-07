@@ -1,0 +1,16 @@
+{% extends '../base.html' %}
+
+{% block permalink %}
+    <li class="nav-item active">
+        <a href = "/receptionist/{{ username }}/" class="nav-link">Home</a>
+    </li>
+{% endblock %}         
+
+{% block navbar %}
+
+    <li class="nav-item active">
+        <a href = "/receptionist/{{ username }}/dashboard/" class="nav-link" id = "a">
+            Dashboard
+        </a>
+    </li>    
+{% endblock %}

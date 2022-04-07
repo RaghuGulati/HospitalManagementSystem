@@ -1,0 +1,40 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+	td,th{
+		font-size: 25px;
+		padding: 13px;
+		padding-right: 52px;
+		border-bottom: 2px solid black;
+	}
+
+	th{
+		background-color: blue;
+		color: white;
+	}
+	
+</style>
+<center>
+	<br><br>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Date Time</th>
+			<th>Patient Id</th>
+			<th>Patient Name</th>
+			<th>Status</th>
+		</tr>
+		{% for a in app %}
+			<tr>
+				<td>{{ a.id }}</td>
+				<td>{{ a.datetime }}</td>
+				<td>{{ a.patient_id_id }}</td>
+				<td>{{ a.patient_id.name }}</td>
+				<td>{{ a.status }}</td>
+			</tr>
+		{% endfor %}
+
+	</table>
+</center>
+{% endblock %}

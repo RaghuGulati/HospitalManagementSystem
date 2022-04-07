@@ -1,0 +1,57 @@
+{% extends './navbar.html' %}
+
+{% block main %}
+<style type="text/css">
+	td,th{
+		font-size: 25px;
+		padding: 13px;
+		padding-right: 52px;
+		border-bottom: 2px solid black;
+	}
+
+	th{
+		background-color: blue;
+		color: white;
+	}
+	a{
+		color: blue;
+	}
+
+	a:hover{
+		text-decoration: none;
+	}
+	
+</style>
+<center>
+	<br><br>
+	<table>
+			<tr>
+				<th>Id</th>
+				<th>Invoice Number</th>
+				<th>Date</th>
+				<th>Paid</th>
+				<th>Outstanding</th>
+				<th>Pay</th>
+			</tr>
+
+		{% for p in inv %}
+			<tr>
+				<td> {{ p.id }} </td>
+				<td>
+					<a href="#">
+						{{ p.invoice_number }} 
+					</a> 
+				</td>
+				<td> {{ p.date }} </td>
+				<td> {{ p.paid }} </td>
+				<td> {{ p.outstanding }} </td>
+				<td>
+					<a href="/patient/{{ username }}/invoices/{{ p.invoice_number }}/pay/">
+						<i class="fa fa-credit-card-alt fa-2x" aria-hidden="true"></i>
+					</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+</center>
+{% endblock %}
